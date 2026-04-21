@@ -169,4 +169,100 @@ Calendar: pre-registration commits 2026-04-21; observation window roughly 2026-0
 
 ## Amendments
 
-(None yet. Each amendment is a dated subsection appended below, referencing the section it modifies.)
+Each amendment is a dated subsection appended below, referencing the section(s) it modifies. Original content above is not edited.
+
+---
+
+### Amendment 2026-04-21 — News-source list expansion (§1) + event-type classification (§1 reporting structure) + Day-30 separate reporting for Class-2 attributions
+
+**Why this amendment exists.** During Day 2 retrospective calibration, 8 priority price jumps (≥15 pp within 60-min windows) from H1 markets were investigated by parallel research agents. Two findings motivated this amendment:
+
+1. Only 3 of 8 jumps had a primary triggering news event attributable to a Day-1-pre-registered source. The other 5 had either off-list primary drivers or no identifiable news driver at all.
+2. Inspection revealed that the 12 H1 markets contain two structurally different event types — resolution-criterion and release-date-speculation — and only the latter cleanly tests the H1 hypothesis. The original §1 reporting structure did not distinguish them.
+
+The source-list expansion is further split into two classes with different integrity treatment.
+
+---
+
+#### Part A — Source-list expansion, split into Class 1 (schema correction) and Class 2 (post-hoc-visible)
+
+**Class 1 additions — Day-1 omissions being corrected.** These sources are canonically authoritative for their respective companies or languages and would have been on the Day-1 list had it been compiled more carefully. Adding them is equivalent to fixing an incomplete initial list.
+
+- **@mustafasuleyman** — Microsoft AI CEO. Explicitly excluded via flag on Day 1 ("canonically authoritative for MAI but not on pre-reg list"); that exclusion is reversed here.
+- **OpenAI employee handles:** @gdb (Greg Brockman), @thsottiaux, @pashmerepat. Parallel in canonical authority to the @AnthropicAI / @GoogleDeepMind / @xai / @mistralai official handles already in §1.3.
+- **Chinese-language tech media for Chinese-origin models:** 36kr (tech), Odaily (crypto-adjacent tech). Our H2 candidate set includes 7 Chinese labs (Baidu, Alibaba, Moonshot, Z-AI, DeepSeek, ByteDance, Meituan); excluding Chinese-language coverage is a systematic blind spot for those companies.
+
+**Class 2 additions — sources surfaced during Day 2 retrospective calibration.** These are legitimate AI-reporting outlets but the *reason we are adding them now* is that they appeared in the Day 2 search results. That is the pre-registration-integrity concern. Adding them is still useful forward-looking, but their attributions will be reported separately to enable auditability.
+
+- **@synthwavedd** — independent AI researcher/leaker, cited by multiple aggregators on GPT-5.5 checkpoint-testing leaks
+- **The Decoder** — AI-specific outlet
+- **VentureBeat** — enterprise AI reporting
+- **@Polymarket** — the venue's own breaking-news handle. Included but flagged as **venue-endogenous** (the market operator amplifying information is not a news primary; its own tweets can move its own markets). Attributions to @Polymarket alone without a corroborating primary source will be flagged in the Day-30 report as venue-endogenous and treated separately.
+- **Geeky Gadgets** — aggregator surfaced during jump-4 re-run; included for completeness
+
+**Class 1-adjacent additions (borderline — treated as Class 1 here but reviewable):** The following were surfaced by Day 2 data BUT are canonical mainstream AI journalism in the same tier as Reuters / Bloomberg / The Information already on the Day-1 list. A Day-1 list author acting carefully would have included them. Treated as **Class 1 schema-correction** by default, but reviewer may argue for Class 2 reclassification if the case holds.
+- **Fortune** (original Mythos-leak exclusive and general AI reporting)
+- **The Verge** (canonical tech journalism)
+
+**Day 30 reporting requirement (new, binding):** The H1 lead-time analysis in the Day-30 verdict will report **two separate tables** with H1-A as the default / headline:
+- **Table H1-A (headline, default):** lead-time statistics using only Class-1-attributed jumps (the "strict" reading; matches pre-Day-1-omission source list in spirit)
+- **Table H1-B (supplementary):** lead-time statistics using Class-1 + Class-2-attributed jumps combined (the "expanded" reading)
+
+The headline H1 verdict uses Table H1-A. Table H1-B is reported alongside for completeness. A non-KILL verdict that requires Table H1-B (i.e., would be KILL under H1-A) must be flagged as "Class-2-dependent" and subject to additional scrutiny in the Day 30 counter-memo. This default can be revised via subsequent amendment but not without documented rationale.
+
+#### Part B — New reporting column: `event_type` classification (change to §1 reporting structure)
+
+Day 2 revealed the 12 H1 markets contain two structurally different event types:
+
+1. **`resolution_criterion`** — the news event directly resolves the market. Example: Anthropic announces Claude Mythos → the "Will a Claude Mythos model be released by June 30" market is directly resolved by the announcement. The news *is* the resolution.
+2. **`release_date_speculation`** — the news event is evidence about a future release date but does not itself resolve the market. Example: a leaked OpenAI memo mentioning "Spud" shifts probability toward a specific April date but doesn't itself resolve any specific-date market.
+3. **`other`** — events that don't fit either category (e.g., a denial that changes base-rate probability without settling any specific binary).
+4. **`no-news-identified`** — no candidate news event found within ±60 min (distinct category; not superseded by the expanded source list).
+
+**Why the distinction matters for H1:** H1's hypothesis ("retail can capture news-to-market latency on release-date markets") applies cleanly only to `release_date_speculation` events. `resolution_criterion` events are structurally easier to trade because there's no probability-inference step — the news directly settles the market. A retail operator observing a resolution-criterion event only needs to confirm it's real before the market prices in. Release-date-speculation events require a probabilistic inference that is faster on bots than on retail.
+
+**Reporting change (binding):** every H1 jump in the event log carries an `event_type` field (one of the 4 categories above). The headline H1 lead-time analysis in the Day-30 verdict uses **only `release_date_speculation` events**. `resolution_criterion` events are reported in a separate Table H1-C, with an explicit note that these are structurally different and should not be used to infer retail latency edge.
+
+#### Part C — Retrospective re-classification of the 8 Day-2 jumps
+
+| Jump | Market | event_type | source_class |
+|------|--------|------------|--------------|
+| 1 | will-a-claude-mythos-model-be-released-by-june-30 (−52pp 04-07) | `resolution_criterion` (Anthropic announcement of Mythos as gated preview directly settles the Mythos-release-by-June-30 question) | Class 1 (anthropic.com/news) |
+| 2 | deepseek-v4-released-by-may-15 (+35pp 03-31) | `no-news-identified` | n/a — deadline-day speculation, no news in ±60 min |
+| 3 | will-gpt-5pt5-be-released-on-april-23 cascade (−30pp 04-10) | `release_date_speculation` | Class 1 (OpenAI employee tweets — now on list) |
+| 4 | will-gpt-5pt5-be-released-on-april-21 surge (+28.4pp 04-13) | `release_date_speculation` | Class 1 (re-amplification of OpenAI employee teases — on list after amendment) + Class 2 (@synthwavedd, The Decoder, @Polymarket venue-endogenous) |
+| 5 | will-gpt-5pt5-be-released-on-april-21 collapse (−29.4pp 04-14) | `release_date_speculation` | Class 2 (@synthwavedd) |
+| 6 | will-gpt-5pt5-be-released-on-april-23 surge (+26pp 04-14) | `release_date_speculation` | Class 1 (@kimmonismus amplification of Dresser memo leak) |
+| 7 | will-a-new-mai-model-be-released-by-april-30 (+29pp 04-19) | `resolution_criterion` (Microsoft released MAI-Image-2-Efficient on Apr 14, this news directly settles "new MAI model by April 30"; jump is delayed repricing) | Class 1 (microsoft.com/ai, @testingcatalog — both on list; @mustafasuleyman now also on list via Class 1 addition) |
+| 8 | will-a-claude-mythos-model (+21pp 03-28) | `resolution_criterion` (Anthropic on-record confirmation of Mythos in development moves "release by June 30" toward YES) | Class 1 (anthropic.com/news, @testingcatalog, @kimmonismus) |
+
+**Clean H1-valid sample in Day 2:** 4 jumps (3, 4, 5, 6) are `release_date_speculation`. Of those:
+- Jump 3: Class 1 after amendment (OpenAI employee tweets)
+- Jump 4: Class 1 after amendment (OpenAI employee re-amplification) + Class 2 supplementary
+- Jump 5: Class 2
+- Jump 6: Class 1 (@kimmonismus amplification of Dresser memo)
+
+Effective Class-1 H1-valid jumps in Day 2 retrospective sample: **3** (jumps 3, 4, and 6) — improved from the pre-amendment count of 2 but still insufficient for any directional claim. The 30-day forward observation is where the meaningful H1 sample is built.
+
+#### Part D — Preliminary H1 read (revised from prior "EXPLORATORY POSITIVE territory" framing)
+
+The earlier summary framed the preliminary lead-time read as "EXPLORATORY POSITIVE territory." That framing was too strong and is retracted for the following reasons:
+
+- Only 2 of 8 jumps (3 and 6) are both H1-valid (release_date_speculation) and attributable to a Class-1 pre-registered source after this amendment. Two data points cannot support any directional claim.
+- Jumps 1 and 8 — the two most apparently "successful" pre-reg attributions — are resolution-criterion, not release-date-speculation. They test a structurally easier trade than H1 hypothesises.
+
+**Revised preliminary read (binding for Day 30 counter-memo):** Day 2 retrospective calibration produced 2 Class-1-attributable release-date-speculation events. Their lead-time observations are recorded in the event log but explicitly do not support any H1 verdict direction. The H1 verdict is entirely dependent on the 30-day forward observation window.
+
+#### Part E — What does NOT change
+
+- All pre-committed thresholds (none exist by design; this is reconnaissance mode)
+- Non-goals
+- H1 / H2 / H3 market lists (§§1, 2, 3)
+- H2 and H3 reporting structures (no change to those hypotheses)
+- Four-state verdict framework (GO / KILL / INCONCLUSIVE / EXPLORATORY POSITIVE)
+- Seven integrity commitments (§5)
+- Amendment policy (this file remains append-only)
+
+---
+
+**This amendment is committed before any H1-valid forward observation begins.** Day 5 infrastructure deployment will log all future H1 jumps under the expanded source list + event_type classification. The 2026-04-21 timestamp of this amendment's commit establishes the boundary between Day-2-retrospective and forward-observation H1 data.

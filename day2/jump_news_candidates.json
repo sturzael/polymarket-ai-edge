@@ -1,0 +1,246 @@
+{
+  "generated_utc": "2026-04-21T00:45:00Z",
+  "notes": "Output of 8 parallel general-purpose agents researching candidate triggering news events for each priority jump. Agents were instructed NOT to pick a winner — that's the pre-registration-integrity-loaded step reserved for the researcher.",
+  "limitations": [
+    "Jump 4 (April-21 GPT-5.5 surge) returned empty: agent reported no WebSearch tool available. Needs re-run.",
+    "Multiple jumps (2, 3, 5) found no candidates on the pre-registered news-source list. Primary drivers appear to be off-list sources (OpenAI employee tweets, @mustafasuleyman, Chinese media, aggregator sites).",
+    "Several candidates have imprecise timestamps — WebSearch returns article metadata, not tweet-level UTC precision."
+  ],
+  "jumps": [
+    {
+      "jump_id": 1,
+      "slug": "will-a-claude-mythos-model-be-released-by-june-30-2026-684",
+      "jump_utc": "2026-04-07T18:00:00Z",
+      "price_before": 0.730,
+      "price_after": 0.210,
+      "delta_pp": -52.0,
+      "candidates": [
+        {
+          "event": "Anthropic announced Claude Mythos Preview as invitation-only gated research preview (Project Glasswing, ~12 partners + ~40 vetted ops), explicitly stating no plan for general availability",
+          "source": "anthropic.com/news",
+          "source_in_pre_reg_list": true,
+          "published_utc": "2026-04-07T17:00:00Z",
+          "url": "https://red.anthropic.com/2026/mythos-preview/"
+        }
+      ],
+      "researcher_selection": null,
+      "status": "pending_review"
+    },
+    {
+      "jump_id": 2,
+      "slug": "deepseek-v4-released-by-may-15",
+      "jump_utc": "2026-03-31T18:00:00Z",
+      "price_before": 0.505,
+      "price_after": 0.855,
+      "delta_pp": 35.0,
+      "candidates_negative_finding": true,
+      "candidates": [
+        {
+          "event": "36kr coverage of DeepSeek 13-hour outage with observations suggesting V4 'gray-scale test' deployed during downtime",
+          "source": "36kr (Chinese tech media)",
+          "source_in_pre_reg_list": false,
+          "published_utc": "2026-03-31T10:44:00Z",
+          "url": "https://eu.36kr.com/en/p/3746701577372168"
+        },
+        {
+          "event": "Bloomberg coverage of DeepSeek 7-hour outage",
+          "source": "Bloomberg Technology",
+          "source_in_pre_reg_list": true,
+          "published_utc": "2026-03-30T00:00:00Z",
+          "url": "https://www.bloomberg.com/news/articles/2026-03-30/deepseek-probes-hours-long-ai-outage-after-users-report-errors",
+          "note": "Outside ±60 min window — background narrative only"
+        }
+      ],
+      "researcher_selection": null,
+      "status": "pending_review_likely_no_pre_reg_driver"
+    },
+    {
+      "jump_id": 3,
+      "slug": "will-gpt-5pt5-be-released-on-april-23-2026 (representative of cascade)",
+      "jump_utc": "2026-04-10T16:00:00Z",
+      "price_before": 0.405,
+      "price_after": 0.105,
+      "delta_pp": -30.0,
+      "cascade_affected_markets": ["april-20", "april-21", "april-22", "april-23", "april-28", "april-29", "april-30"],
+      "candidates_negative_finding": true,
+      "candidates": [
+        {
+          "event": "OpenAI employee @thsottiaux cryptic 'next week will be about more than cooking' tweet interpreted as deferring imminent release",
+          "source": "@thsottiaux (OpenAI employee)",
+          "source_in_pre_reg_list": false,
+          "published_utc": "2026-04-10T15:00:00Z",
+          "url": "https://findskill.ai/blog/gpt-6-release-date/",
+          "note": "Direction-ambiguous — 'next week' framing could push specific-date markets down by shifting probability outward, but exact timestamp not recovered"
+        },
+        {
+          "event": "OpenAI employee @pashmerepat 'things are about to get wild' tweet paired with @thsottiaux",
+          "source": "@pashmerepat (OpenAI employee)",
+          "source_in_pre_reg_list": false,
+          "published_utc": "2026-04-10T15:00:00Z",
+          "url": "https://findskill.ai/blog/gpt-6-release-date/"
+        }
+      ],
+      "meta_observation": "No Sam Altman tweet, no @OpenAI post, no openai.com/blog entry, no pre-registered leaker post found in the ±60min window. Altman's feed reportedly quiet from March 24 through April 17. Cascade may be endogenous (leak-credibility reset) or driven by off-list source.",
+      "researcher_selection": null,
+      "status": "pending_review_no_pre_reg_driver"
+    },
+    {
+      "jump_id": 4,
+      "slug": "will-gpt-5pt5-be-released-on-april-21-2026",
+      "jump_utc": "2026-04-13T08:00:00Z",
+      "price_before": 0.035,
+      "price_after": 0.318,
+      "delta_pp": 28.4,
+      "candidates": [],
+      "status": "needs_rerun",
+      "note": "Agent returned empty; reported no WebSearch tool available in its environment"
+    },
+    {
+      "jump_id": 5,
+      "slug": "will-gpt-5pt5-be-released-on-april-21-2026",
+      "jump_utc": "2026-04-14T01:00:00Z",
+      "price_before": 0.318,
+      "price_after": 0.024,
+      "delta_pp": -29.4,
+      "companion_jump_note": "Mirror of jump 6 (April-23 surge at ~02:00Z same night). Probability mass rotated from April-21 to April-23.",
+      "candidates": [
+        {
+          "event": "Prediction-market sentiment consolidated on April 23 as dominant release date, attributed to @synthwavedd checkpoint-testing leak amplifying insider chatter",
+          "source": "@synthwavedd",
+          "source_in_pre_reg_list": false,
+          "published_utc": "2026-04-14T00:00:00Z",
+          "url": "https://primeaicenter.com/gpt-5-5-review/",
+          "note": "Primary post not located; aggregator summary cites @synthwavedd"
+        }
+      ],
+      "researcher_selection": null,
+      "status": "pending_review_no_pre_reg_driver"
+    },
+    {
+      "jump_id": 6,
+      "slug": "will-gpt-5pt5-be-released-on-april-23-2026",
+      "jump_utc": "2026-04-14T03:00:00Z",
+      "price_before": 0.395,
+      "price_after": 0.655,
+      "delta_pp": 26.0,
+      "companion_of_jump_5": true,
+      "candidates": [
+        {
+          "event": "Leaked internal OpenAI memo from CRO Denise Dresser referencing 'Spud' frontier model; The Verge obtained text Apr 13",
+          "source": "The Decoder (via The Verge leak)",
+          "source_in_pre_reg_list": false,
+          "published_utc": "2026-04-13T18:00:00Z",
+          "url": "https://the-decoder.com/openais-leaked-memo-says-new-spud-model-will-make-all-its-products-significantly-better/"
+        },
+        {
+          "event": "@kimmonismus amplification of leaked Dresser memo highlights",
+          "source": "@kimmonismus",
+          "source_in_pre_reg_list": true,
+          "published_utc": "2026-04-13T20:00:00Z",
+          "url": "https://x.com/kimmonismus/status/2044015840157478946",
+          "note": "Pre-registered leaker source. Exact tweet timestamp not retrievable via search snippet."
+        },
+        {
+          "event": "Structural: April 23 is a Wednesday (OpenAI's typical release day), first Wed satisfying post-pretraining 3-6 week eval norm after April-21 collapse",
+          "source": "Structural/Baseline (calendar inference)",
+          "source_in_pre_reg_list": false,
+          "published_utc": "2026-04-14T00:00:00Z",
+          "note": "Not a news event — collective re-anchoring on next-Wednesday Schelling point"
+        }
+      ],
+      "researcher_selection": null,
+      "status": "pending_review"
+    },
+    {
+      "jump_id": 7,
+      "slug": "will-a-new-mai-model-be-released-by-april-30-2026",
+      "jump_utc": "2026-04-19T07:00:00Z",
+      "price_before": 0.235,
+      "price_after": 0.525,
+      "delta_pp": 29.0,
+      "candidates": [
+        {
+          "event": "NY Report resurfacing coverage of MAI-Image-2-Efficient (41% cheaper, 22% faster)",
+          "source": "NY Report (secondary aggregator)",
+          "source_in_pre_reg_list": false,
+          "published_utc": "2026-04-18T20:19:00Z",
+          "url": "https://www.nyreport.com/2026/04/18/microsoft-debuts-cheaper-faster-image-model/",
+          "note": "~10h before jump; consistent with weekend news-cycle re-surfacing"
+        },
+        {
+          "event": "Microsoft AI official announcement: MAI-Image-2-Efficient live in Foundry + Playground",
+          "source": "microsoft.com/ai (official company channel)",
+          "source_in_pre_reg_list": true,
+          "published_utc": "2026-04-14T00:00:00Z",
+          "url": "https://microsoft.ai/news/mai-image-2-efficient/",
+          "note": "Primary release Apr 14 — predates jump by 5 days. Jump may be delayed Polymarket repricing / weekend attention."
+        },
+        {
+          "event": "@mustafasuleyman X announcement of MAI-Image-2-Efficient",
+          "source": "@mustafasuleyman",
+          "source_in_pre_reg_list": false,
+          "published_utc": "2026-04-14T00:00:00Z",
+          "url": "https://x.com/mustafasuleyman/status/2044083984343466156",
+          "note": "Canonically authoritative for MAI but explicitly excluded from pre-reg list"
+        },
+        {
+          "event": "@testingcatalog coverage",
+          "source": "@testingcatalog",
+          "source_in_pre_reg_list": true,
+          "published_utc": "2026-04-14T00:00:00Z",
+          "url": "https://www.testingcatalog.com/microsoft-launches-faster-mai-image-2-efficient-for-business/"
+        }
+      ],
+      "researcher_selection": null,
+      "status": "pending_review_delayed_repricing_hypothesis"
+    },
+    {
+      "jump_id": 8,
+      "slug": "will-a-claude-mythos-model-be-released-by-june-30-2026-684",
+      "jump_utc": "2026-03-28T05:00:00Z",
+      "price_before": 0.445,
+      "price_after": 0.655,
+      "delta_pp": 21.0,
+      "candidates": [
+        {
+          "event": "Anthropic spokesperson on-record confirmation of Claude Mythos as upcoming 'step change' model",
+          "source": "anthropic.com/news (via Fortune quote)",
+          "source_in_pre_reg_list": true,
+          "published_utc": "2026-03-27T00:00:00Z",
+          "url": "https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/"
+        },
+        {
+          "event": "Fortune follow-up: 'Anthropic accidentally leaked Claude Mythos details, unprecedented cybersecurity risks'",
+          "source": "Fortune (baseline news)",
+          "source_in_pre_reg_list": false,
+          "published_utc": "2026-03-27T20:00:00Z",
+          "url": "https://fortune.com/2026/03/27/anthropic-leaked-ai-mythos-cybersecurity-risk/",
+          "note": "Fortune is mainstream news but not on pre-reg 'Reuters / Bloomberg / The Information' baseline list"
+        },
+        {
+          "event": "@testingcatalog post: 'Anthropic readies Mythos model with high cybersecurity risk'",
+          "source": "@testingcatalog",
+          "source_in_pre_reg_list": true,
+          "published_utc": "2026-03-27T22:00:00Z",
+          "url": "https://www.testingcatalog.com/anthropic-redies-powerfull-mythos-model-with-high-cybersecurity-risk/"
+        },
+        {
+          "event": "@kimmonismus benchmark amplification thread",
+          "source": "@kimmonismus",
+          "source_in_pre_reg_list": true,
+          "published_utc": "2026-03-28T02:00:00Z",
+          "url": "https://twitter.com/kimmonismus"
+        },
+        {
+          "event": "CoinDesk: 'Anthropic's massive Claude Mythos leak sends software security stocks down'",
+          "source": "CoinDesk",
+          "source_in_pre_reg_list": false,
+          "published_utc": "2026-03-27T17:56:00Z",
+          "url": "https://www.coindesk.com/markets/2026/03/27/anthropic-s-massive-claude-mythos-leak-reveals-a-new-ai-model-that-could-be-a-cybersecurity-nightmare"
+        }
+      ],
+      "researcher_selection": null,
+      "status": "pending_review"
+    }
+  ]
+}
