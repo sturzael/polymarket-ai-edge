@@ -4,7 +4,7 @@
 
 **Status:** pre-registration and Day-2 retrospective calibration complete. Forward observation window (30 days) is planned — not yet begun. Verdict lands at end of observation window.
 
-> 👉 **Not a markets person?** Read the [Explain Like I'm Five version](docs/ELI5.md) *(coming soon)* instead.
+> 👉 **Not a markets person?** Read the [Explain Like I'm Five version](docs/ELI5.md) instead.
 
 ---
 
