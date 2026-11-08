@@ -2,7 +2,9 @@
 
 **A pre-registered reconnaissance study into whether a retail operator with $1k and 200-300ms latency can find tradeable edge on Polymarket's AI-themed markets — release-date binaries, leaderboard baskets, and corporate-valuation markets.**
 
-**Status:** pre-registration and Day-2 retrospective calibration complete. Forward observation window (30 days) is planned — not yet begun. Verdict lands at end of observation window.
+**Status: closed without a verdict (closed November 2026).** Pre-registration and the Day-2 retrospective calibration were completed on 21 April 2026. The pre-registered 30-day forward observation window was planned but never run: no live data was collected after 21 April, so there is no Day-30 verdict.
+
+> **What was actually done.** A *retrospective* pull of the previous ~30 days of hourly prices (21 Mar to 21 Apr 2026) for the 12 release-date markets and the leaderboard basket. That pull found 47 price jumps; 8 were matched to news. **What stands:** exploratory observations only (e.g. Western-lab news priced in faster than Chinese-lab news, n=3). **What doesn't:** any claim about edge. Backfilling the forward window now would break the pre-registration, so the study is closed as-is rather than completed after the fact.
 
 > 👉 **Not a markets person?** Read the [Explain Like I'm Five version](docs/ELI5.md) instead.
 
@@ -14,7 +16,7 @@
 - Tested three hypotheses: news-to-market latency, leaderboard directional pricing, corporate-catalyst repricing tails
 - **Reconnaissance mode** — no pre-committed numerical GO thresholds; pre-commitment is on reporting structure, with a four-state verdict (GO / KILL / INCONCLUSIVE / EXPLORATORY POSITIVE)
 - Day 2 retrospective calibration surfaced an asymmetric-bot-coverage pattern (Western labs bot-covered within hours, Chinese / peripheral labs lagged 20+ hours) that is **explicitly logged out-of-scope** to avoid HARKing
-- Verdict lands Day 30
+- **No verdict:** the forward window was never run (see Status)
 
 ---
 
@@ -38,7 +40,7 @@
 ### H1 — News-to-market latency on release-date markets
 Can a retail operator capture edge between when a release-date rumor/leak lands and when Polymarket reprices? Measured against 12 pre-registered release-date markets (GPT-5.5/6, DeepSeek V4, Gemini 3.5, Claude Mythos, MAI).
 
-**Day 2 found:** lead times of ~5 hours on Western-lab news (fast) vs ~20 hours on Chinese-lab news (slow). n=3 Class-1 attributable events — too small to conclude. Verdict pending 30-day observation.
+**Day 2 found:** lead times of ~5 hours on Western-lab news (fast) vs ~20 hours on Chinese-lab news (slow). n=3 Class-1 attributable events — too small to conclude. The 30-day observation that would have tested this was never run.
 
 ### H2 — Leaderboard directional view
 Is the market's "best AI model end of April" basket (Anthropic 80% / OpenAI 19% / 13 others at 0.1-0.2%) pricing the April 30 LM Arena outcome correctly? A specific decomposed probability model gets built, disagreement ≥5pp after ÷5 adjustment flags as edge.
@@ -134,4 +136,4 @@ No capital is deployed at any phase. All observation data comes from public Poly
 
 Independent audit of the Day-30 verdict should begin by verifying the five integrity commitments in [`RISKS.md`](RISKS.md) §R7 were honoured.
 
-**Star ⭐ this repo if you want to follow the Day-30 verdict when it lands.**
+
